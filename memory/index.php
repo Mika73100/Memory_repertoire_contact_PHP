@@ -15,6 +15,7 @@
 
 
 <body>
+    <!-- Les marges -->
     <div class="container">
 
 
@@ -23,96 +24,92 @@
         <a href="ajoutcontact.php"><img class="ajouter" src="images-memory\ajouter.png" alt="Ajouter"></a>
 
 
-
+        <!-- Trois colonnes -->
         <div class="row ">
+
+
+            <?php
+// Connexion et tri de la table prénom 
+
+            try {
+
+                $servername = "localhost";
+                $username = "root";
+                $password = "";
+                $dbname = "memory";
+
+
+                $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+
+                $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+
+                $tri = "SELECT Prenom From Contact ORDER BY Prenom ";
+                $sth = $conn->prepare($tri);
+                $sth->execute();
+                $result = $sth->fetchAll();
+            } catch (PDOException $e) {
+                echo 'Impossible de traiter les données. Erreur : ' . $e->getMessage();
+            }
+
+            ?>
+
+
+
+            <!-- Colonne 1 -->
             <div id="block1" class="col-md-4">
 
 
                 <?php
-                try {
 
-                    $servername = "localhost";
-                    $username = "root";
-                    $password = "";
-                    $dbname = "memory";
-                
-                
-                    $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
-                
-                    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
-
-                    $tri = "SELECT Prenom From Contact ORDER BY Prenom ";
-                    $sth = $conn->prepare($tri);
-                    $sth->execute();
-                    $result = $sth->fetchAll();
-                } catch (PDOException $e) {
-                    echo 'Impossible de traiter les données. Erreur : ' . $e->getMessage();
-                }
-
-
-                
 
                 for ($i = ord('A'); $i <= ord('I'); $i++) {
                     $lettre = chr($i);
-                    echo ' <div class="accordion-item">
-               
-                    <h2 class="accordion-header" id="flush-headingOne">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
-                       ' . $lettre . '
-                    </button>
-                    </h2>
-                <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
-                         <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the first item\'s accordion body.</div>
-                </div>
-            </div>
-';
+                    echo $lettre. '<br>'. '<hr>';
+
+                    for ($y = 0; $y < count($result); $y++) {
+                        if ($lettre == strtoupper(substr($result[$y]['Prenom'], 0, 1))) {
+                            echo $result[$y]['Prenom']. '<br>'.'<br>';
+                        }
+                    }
                 }
 
                 ?>
 
             </div>
-
+            <!-- Colonne 2  -->
             <div id="block2" class="col-md-4">
                 <?php
 
                 for ($i = ord('J'); $i <= ord('R'); $i++) {
                     $lettre = chr($i);
-                    echo ' <div class="accordion-item">
-               
-                    <h2 class="accordion-header" id="flush-headingOne">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
-                       ' . $lettre . '
-                    </button>
-                    </h2>
-                <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
-                         <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the first item\'s accordion body.</div>
-                </div>
-            </div>
-';
+                    echo $lettre;
+                    for ($y = 0; $y < count($result); $y++) {
+                        if ($lettre == strtoupper(substr($result[$y]['Prenom'], 0, 1))) {
+                            echo $result[$y]['Prenom'];
+                        }
+                    }
                 }
+
+
                 ?>
             </div>
 
-
+            <!-- Colonne 3 -->
             <div id="block3" class="col-md-4">
                 <?php
 
                 for ($i = ord('S'); $i <= ord('Z'); $i++) {
                     $lettre = chr($i);
-                    echo ' <div class="accordion-item">
-               
-                    <h2 class="accordion-header" id="flush-headingOne">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
-                       ' . $lettre . '
-                    </button>
-                    </h2>
-                <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
-                         <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the first item\'s accordion body.</div>
-                </div>
-            </div>
-';
+                    echo $lettre;
+                    for ($y = 0; $y < count($result); $y++) {
+                        if ($lettre == strtoupper(substr($result[$y]['Prenom'], 0, 1))) {
+                            echo $result[$y]['Prenom'];
+                        }
+                    }
                 }
+
+
 
                 ?>
 
