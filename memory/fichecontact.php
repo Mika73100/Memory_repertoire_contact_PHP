@@ -58,10 +58,10 @@ try {
   
 
     if(isset($result)){
-        echo $result ['Prenom'] . '<br>';
-        echo $result ['Nom'] . '<br>';
-        echo $result ['Telportable'] . '<br>';
-        echo $result ['Mail'] . '<br>';
+        echo "Prénom : " .  $result ['Prenom'] . '<br>';
+        echo "Nom : " . $result ['Nom'] . '<br>';
+        echo "Teléphone portable : " . $result ['Telportable'] . '<br>';
+        echo "E-mail : " . $result ['Mail'] . '<br>';
      
    
    
@@ -74,7 +74,7 @@ catch (PDOException $e) {
 
 
 echo '<a href="./supprimer.php?id='. $result['Id'] .'"><img class="suppimg" src="images-memory\corbeille.png" alt="supprimer contact"></a><br>';
-echo '<a href="./modifier.php?id='. $result['Id'] .'"><img class="mod" src="images-memory\modifier.png"alt="modifier contact"></a><br>';
+echo '<a href="./modifiercontact.php?id='. $result['Id'] .'"><img class="mod" src="images-memory\modifier.png"alt="modifier contact"></a><br>';
 ?>
 
 

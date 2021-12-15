@@ -13,7 +13,33 @@
 </head>
 
 <body>
-    
+<?php
+
+// Afficher la fiche contact
+
+try {
+
+    $servername = "localhost";
+    $username = "root";
+    $password = "";
+    $dbname = "memory";
+
+
+    $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+
+    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+
+    $tri = "SELECT * From Contact where Id= ".$_GET['id'];
+    $sth = $conn->prepare($tri);
+    $sth->execute();
+    $result = $sth->fetch();
+}
+
+catch (PDOException $e) {
+    echo 'Impossible de traiter les données. Erreur : ' . $e->getMessage();
+}
+?>
 
     <div class="container">
       <!-- Logo -->
@@ -21,35 +47,35 @@
 
 <!-- Formulaire ajout contact -->
 
-        <form action="table.php" method="post" class=" vertical-alignment">
+        <form action="modifier.php?id=<?php echo $result['Id']; ?>" method="post" class=" vertical-alignment">
             <div class="col-md-12">
               <label for="nom" class="form-label">Nom</label>
-              <input type="text" class="form-control" name="nom" id="nom" placeholder="Nom" required>
+              <input type="text" class="form-control" name="nom" id="nom" placeholder="Nom" value="<?php echo $result['Nom']; ?>"required>
             </div>
           
             <div class="col-12">
               <label for="prenom" class="form-label">Prénom</label>
-              <input type="text" class="form-control" name="prenom" id="prenom" placeholder="Prénom" required>
+              <input type="text" class="form-control" name="prenom" id="prenom" placeholder="Prénom" value="<?php echo $result['Prenom']; ?>"required>
             </div>
             <div class="col-12">
               <label for="mail" class="form-label">Mail</label>
-              <input type="email" class="form-control" name="mail" id="mail" placeholder="E-mail" required>
+              <input type="email" class="form-control" name="mail" id="mail" placeholder="E-mail" value=" <?php echo $result['Mail']; ?>" required>
             </div>
             <div class="col-md-12">
               <label for="telportable" class="form-label">Numéro de portable</label>
-              <input type="tel" class="form-control" name="telportable" id="telportable" placeholder="01 23 45 67 89" minlength="9" maxlength="14" required>
+              <input type="tel" class="form-control" name="telportable" id="telportable" placeholder="01 23 45 67 89" minlength="9" maxlength="14" required value="<?php echo $result['Telportable']; ?>">
             </div>
                       
             <div class="col-md-3">
               <label for="inputState" class="form-label">Sexe</label>
               <select id="inputState" name="sexe" class="form-select">
-                <option value="homme" selected>Homme</option>
-                <option value="femme">Femme</option>
+                <option value="homme" <?php if ($result['Sexe'] == 'homme'){ echo "selected";} ?>>Homme</option>
+                <option value="femme" <?php if ($result['Sexe'] == 'femme'){ echo "selected";} ?>>Femme</option>
               </select>
             </div>
           
             <div class="col-12">
-              <button type="envoyer" class="btn btn-primary">Ajouter</button>
+              <button type="envoyer" class="btn btn-primary">Modifier</button>
             </div>
           </form>
 

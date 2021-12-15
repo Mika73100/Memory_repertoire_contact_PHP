@@ -32,12 +32,40 @@
     
         $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
+     }
 
-        $result = " ALTER TABLE Contact ADD Id= ".$_GET['id'] ;
-        $sth = $conn->prepare($result);
-            $sth->execute();
-        echo 'Contact modifié';}
-        
+        catch (PDOException $e) {
+            echo "Erreur : " . $e->getMessage();
+        }
+
+    $nom = $_POST["nom"];
+    $prenom = $_POST["prenom"];
+    $mail = $_POST["mail"];
+    $telportable = $_POST["telportable"];
+    $sexe = $_POST["sexe"];
+
+try  {
+
+    $sth = $conn->prepare(" UPDATE contact SET Nom= :nom, Prenom= :prenom, Mail= :mail, Telportable= :telportable, Sexe= :sexe where Id= :id");
+
+
+    $sth->bindParam(':nom',$nom);
+    $sth->bindParam(':prenom',$prenom);
+    $sth->bindParam(':mail',$mail);
+    $sth->bindParam(':telportable',$telportable);
+    $sth->bindParam(':sexe',$sexe);
+    $sth->bindParam(':id', $_GET['id']);
+
+
+    $sth->execute();
+
+
+
+
+    echo 'Contact modifié';}
+
+
+
         catch (PDOException $e) {
             echo "Erreur : " . $e->getMessage();
         }
