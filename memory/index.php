@@ -19,7 +19,7 @@
     <div class="container">
 
 
-        <img class="logo" src="images-memory\logomermory.png" alt="Logo memory">
+       <a href="index.php"><img class="logo" src="images-memory\logomermory.png" alt="Logo memory"></a> 
 
         <a href="ajoutcontact.php"><img class="ajouter" src="images-memory\ajouter.png" alt="Ajouter"></a>
 
@@ -44,7 +44,7 @@
                 $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 
-                $tri = "SELECT Prenom From Contact ORDER BY Prenom ";
+                $tri = "SELECT Id, Prenom From Contact ORDER BY Prenom";
                 $sth = $conn->prepare($tri);
                 $sth->execute();
                 $result = $sth->fetchAll();
@@ -69,7 +69,8 @@
 
                     for ($y = 0; $y < count($result); $y++) {
                         if ($lettre == strtoupper(substr($result[$y]['Prenom'], 0, 1))) {
-                            echo $result[$y]['Prenom']. '<br>'.'<br>';
+                                      // lien pour accéder à la fiche contact
+                            echo '<a href="./fichecontact.php?id='.$result[$y]['Id'].'">'.$result[$y]['Prenom']. '</a><br>'.'<br>';
                         }
                     }
                 }
@@ -83,10 +84,11 @@
 
                 for ($i = ord('J'); $i <= ord('R'); $i++) {
                     $lettre = chr($i);
-                    echo $lettre;
+                    echo $lettre. '<br>'. '<hr>';
                     for ($y = 0; $y < count($result); $y++) {
                         if ($lettre == strtoupper(substr($result[$y]['Prenom'], 0, 1))) {
-                            echo $result[$y]['Prenom'];
+                            // lien pour accéder à la fiche contact
+                            echo '<a href="./fichecontact.php?id='.$result[$y]['Id'].'">'.$result[$y]['Prenom']. '</a><br>'.'<br>';
                         }
                     }
                 }
@@ -101,10 +103,11 @@
 
                 for ($i = ord('S'); $i <= ord('Z'); $i++) {
                     $lettre = chr($i);
-                    echo $lettre;
+                    echo $lettre. '<br>'. '<hr>';
                     for ($y = 0; $y < count($result); $y++) {
                         if ($lettre == strtoupper(substr($result[$y]['Prenom'], 0, 1))) {
-                            echo $result[$y]['Prenom'];
+                                      // lien pour accéder à la fiche contact
+                            echo '<a href="./fichecontact.php?id='.$result[$y]['Id'].'">'.$result[$y]['Prenom']. '</a><br>'.'<br>';
                         }
                     }
                 }

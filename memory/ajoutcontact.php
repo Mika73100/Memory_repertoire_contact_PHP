@@ -14,8 +14,12 @@
 
 <body>
     
-    <div class="container">
 
+    <div class="container">
+      <!-- Logo -->
+    <a href="index.php"><img class="logo" src="images-memory\logomermory.png" alt="Logo memory"></a> 
+
+<!-- Formulaire ajout contact -->
 
         <form action="table.php" method="post" class=" vertical-alignment">
             <div class="col-md-12">
@@ -35,8 +39,7 @@
               <label for="telportable" class="form-label">Numéro de portable</label>
               <input type="tel" class="form-control" name="telportable" id="telportable" placeholder="01 23 45 67 89">
             </div>
-            
-          
+                      
             <div class="col-md-3">
               <label for="inputState" class="form-label">Sexe</label>
               <select id="inputState" name="sexe" class="form-select">
@@ -50,6 +53,7 @@
             </div>
           </form>
 
+          
 
 
 
