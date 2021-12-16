@@ -54,6 +54,8 @@ echo "Erreur : " . $e->getMessage();
   header('Location: http://localhost/Memory/memory/index.php');
   exit();
 ?>
+
 </body>
+
 
 </html>
