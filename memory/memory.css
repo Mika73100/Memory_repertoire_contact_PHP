@@ -1,16 +1,6 @@
 :root{
-    --primary:#FFFFFF;
-}
-
-
-form {
-    margin: 0 auto;
-    width: 400px;
-    text-align: center;
-
-}
-.ajouter {
-    width: 100px;
+    --primary:#ffffff;
+    --primarylien:hsl(226, 39%, 49%);
 }
 
 body {
@@ -21,20 +11,47 @@ body {
     background-color: #fcfcfc;
 }
 
+
+/*--------------------------------------------------*/
+form {
+    margin: 0 auto;
+    width: 400px;
+    text-align: center;
+
+}
+
+
+/*------------------Les images --------------------*/
+.ajouter {
+    width: 100px;
+    padding-top: 15%;
+}
+
+
 .logo {
-    width: 200px;
+    margin-bottom: 100px;
+    width: 180px;
     margin-right : 0 auto;
     }
 
 .suppimg {
     width : 100px;
     display: flex;
+    margin-left: 68%;
 }
 
 .mod {
     width : 100px;
-    display: flex;  
+    display: flex;
+    margin-left: 100%;  
 }
+
+.avatar {
+    border-radius: 50%;
+    width: 200px;
+    margin-bottom: 10%;
+}
+/*---------------------------------------------------*/
 
 a{
     color : var(--primary);
@@ -42,21 +59,44 @@ a{
     display: flex;
 }
 
+/*-------------------------les colonnes -------------*/
 
+
+
+div.col-md-4 {
+    color : var(--primary);
+}
 
 div.col-6 {     
   margin: 30px auto;
   width: 250px; 
-  height: 100px;
   border-radius: 3px;
   line-height: 30px;
   color: var(--primary);
 }
 
-div.col12 {
+div.col-12 {
     padding-bottom: 30px;
     color : var(--primary);
 }
+
+div.col13 {
+    margin:auto;
+}
+
+.row div.col-5 {
+    margin: auto;
+    text-align: center;
+    line-height: 2em;
+}
+
+div.col2 {
+    background-color:var(--primary) ;
+    margin-bottom: 15px;
+    border-radius: 25px;
+}
+
+/*-------------------------les styles des rectangles ----------*/
 
 .form-control {
     border-radius: 5rem;
@@ -66,7 +106,21 @@ div.col12 {
     border-radius: 5rem;
 }
 
+.form-label {
+    color:var(--primary);
+}
+
+
+/*---------bouton -----------------*/
+
+
 .btn-primary {
     border-radius: 5rem;
     font-size: large;
+}
+
+.btn-primary {
+    border-radius: 5rem;
+    font-size: large;
+    margin-top: 15px;
 }

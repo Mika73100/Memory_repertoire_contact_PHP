@@ -49,35 +49,29 @@ try {
     $sth = $conn->prepare($tri);
     $sth->execute();
     $result = $sth->fetch();
-
+    echo '<div class="col-8"><a href="./modifiercontact.php?id='. $result['Id'] .'"><img class="mod" src="images-memory\modifier.png"alt="modifier contact"></a></div></div>';
     echo ' <div class="row">
-    <div class="col-6">';
-    echo '<a href="./supprimer.php?id='. $result['Id'] .'"><img class="suppimg" src="images-memory\corbeille.png" alt="supprimer contact"></a></div>';
-    echo '
-    <div class="col-6"><a href="./modifiercontact.php?id='. $result['Id'] .'"><img class="mod" src="images-memory\modifier.png"alt="modifier contact"></a></div></div>';
-
+    <div class="col-5">';
 
     $sexe= $result['Sexe'];
 
     if ($sexe == 'femme')
     {
-        echo '<img class= src="images-memory\avatarfemme.png" alt="Logo memory">' . '<br>';
+        echo '<img class="avatar" src="images-memory\avatarfemme.png" alt="Logo memory">' . '<br>';
     }
 
     elseif ($sexe == 'homme') {
-        echo '<img src="images-memory\avatarhomme.png" alt="Logo memory">' . '<br>';
+        echo '<img class="avatar" src="images-memory\avatarhomme.png" alt="Logo homme">' . '<br>';
     }
-  
 
-    if(isset($result)){
-        echo "Prénom : " .  $result ['Prenom'] . '<br>';
-        echo "Nom : " . $result ['Nom'] . '<br>';
-        echo "Teléphone portable : " . $result ['Telportable'] . '<br>';
-        echo "E-mail : " . $result ['Mail'] . '<br>';
+
+    if (isset($result)){
+        echo "<div class=col2> Prénom : " .$result ['Prenom']   . '</div>';
+        echo "<div class=col2> Nom : " . $result ['Nom'] . '</div>';
+        echo "<div class=col2> Teléphone portable : " . $result ['Telportable'] . '</div>';
+        echo "<div class=col2> E-mail : " . $result ['Mail'] . '</div>';
      }
     }
-
-
 
 catch (PDOException $e) {
     echo 'Impossible de traiter les données. Erreur : ' . $e->getMessage();
@@ -87,6 +81,6 @@ catch (PDOException $e) {
 ?>
 
 </div>
-</div>
-  </div>
-</body>
+<div col13> '<a href="./supprimer.php?id='. $result['Id'] .'"><img class="suppimg" src="images-memory\corbeille.png" alt="supprimer contact"></a></div>';
+
+</body></html>

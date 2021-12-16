@@ -16,7 +16,7 @@
 
 <body>
     <!-- Les marges -->
-    <div class="container">
+    <div class="col-6">
     <a href="index.php"><img class="logo" src="images-memory\logomermory.png" alt="Logo memory"></a> 
 
     <?php
@@ -72,6 +72,11 @@ try  {
 
  ?>
     </div>
+
+    <?php
+  header('Location: http://localhost/Memory/memory/index.php');
+  exit();
+?>
 
 </body>
 
