@@ -21,19 +21,15 @@
 
     <?php
 
-
-//  Connexion serveur
+require 'initialisation.php';
+if (empty($_SESSION['result']) )
+    {
+header("location: authentification.php");
+// echo "Identifiant ou mot de passe incorrect";
+}
 
     try {
-        $servername = "localhost";
-        $username = "root";
-        $password = "";
-        $dbname = "memory";
-    
-    
-        $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
-    
-        $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+       
 
         // Supprimer le contact
 

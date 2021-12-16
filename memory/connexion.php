@@ -18,22 +18,30 @@
     <!-- Les marges -->
     <div class="container">
 
-    <form action="utilisateur.php" method="post" class=" vertical-alignment">
+   <button><a href="inscription.php">Inscription</a></button> 
+
+<H1>Veuillez vous authentifier</H1>
+
+    <form action="" method="post" class=" vertical-alignment">
             <div class="col-md-12">
 
               <label for="identifiant" class="form-label">Identifiant</label>
-              <input type="text" class="form-control" name="utilisateur" id="identifiant" placeholder="Entrer votre identifiant" required>
+              <input type="text" class="form-control" name="identifiant" id="identifiant" placeholder="Entrer votre identifiant" required>
             </div>
           
             <div class="col-12">
               <label for="motdepasse" class="form-label">Mot de passe</label>
-              <input type="password" class="form-control" name="motdepasse" id="motdepasse" placeholder="Entrer le mot de passe" required>
+              <input type="password" class="form-control" name="login" id="motdepasse" placeholder="Entrer le mot de passe" required>
             </div>
           
             <div class="col-12">
-            <input type="submit" id='submit' value='LOGIN'>
+            <input type="submit" id='submit' value='CONNEXION'>
             </div>
             <?php
+
+              
+                
+                
                 
                 
                 ?>
@@ -43,9 +51,38 @@
           </form>
 
 
+          <?php
 
+
+
+    // Connexion et tri de la table prénom 
+    if(!empty($_POST["identifiant"]) && !empty($_POST["login"])) {
+      try {
+require 'initialisation.php';
+// require 'veriflogin.php';
+echo print_r($_SESSION['result']);
+
+$utilisateur = $_POST["identifiant"];
+$motdepasse = $_POST["login"];
+
+
+$util = "SELECT * From utilisateur where Nom_utilisateur='$utilisateur' and Mot_de_passe='$motdepasse'";
+$sth = $conn->prepare($util);
+$sth->execute();
+$result = $sth->fetch();
+
+$_SESSION['result']=$result;
+} catch (PDOException $e) {
+  echo 'Impossible de traiter les données. Erreur : ' . $e->getMessage();
+}
+}
+if (!empty($_SESSION['result']) )
+{
+header("location: index.php");
+// echo "Identifiant ou mot de passe incorrect";
+}
     
-
+?>
     </div>
 
 </body>

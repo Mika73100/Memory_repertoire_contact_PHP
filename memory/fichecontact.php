@@ -16,10 +16,10 @@
 
 <body>
     <!-- Les marges -->
-    <div class ="container">
+    <div class="container">
         <div class="row">
             <div class="col-13">
-                 <a href="index.php"><img class="logo" src="images-memory\logomermory.png" alt="Logo memory"></a> 
+                <a href="index.php"><img class="logo" src="images-memory\logomermory.png" alt="Logo memory"></a>
 
             </div>
         </div>
@@ -27,66 +27,56 @@
 
 
         <div class="row">
-    <div class="col-12">
-<?php
+            <div class="col-12">
 
-// Afficher la fiche contact
+            <button><a href="deconnexion.php">Deconnexion</a></button> 
+                <?php
 
-try {
+                // Afficher la fiche contact
 
-    $servername = "localhost";
-    $username = "root";
-    $password = "";
-    $dbname = "memory";
+                try {
 
+                    require 'initialisation.php';
+                    if (empty($_SESSION['result'])) {
+                        header("location: authentification.php");
+                        // echo "Identifiant ou mot de passe incorrect";
+                    }
 
-    $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+                    $tri = "SELECT * From Contact where Id= " . $_GET['id'];
+                    $sth = $conn->prepare($tri);
+                    $sth->execute();
+                    $result = $sth->fetch();
 
-    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
-
-    $tri = "SELECT * From Contact where Id= ".$_GET['id'];
-    $sth = $conn->prepare($tri);
-    $sth->execute();
-    $result = $sth->fetch();
-
-    echo ' <div class="row">
-    <div class="col-6">';
-    echo '<a href="./supprimer.php?id='. $result['Id'] .'"><img class="suppimg" src="images-memory\corbeille.png" alt="supprimer contact"></a></div>';
-    echo '
-    <div class="col-6"><a href="./modifiercontact.php?id='. $result['Id'] .'"><img class="mod" src="images-memory\modifier.png"alt="modifier contact"></a></div></div>';
+                    echo ' <div class="row">
+                            <div class="col-6">';
+                    echo '<a href="./supprimer.php?id=' . $result['Id'] . '"><img class="suppimg" src="images-memory\corbeille.png" alt="supprimer contact"></a></div>';
+                    echo '
+    <div class="col-6"><a href="./modifiercontact.php?id=' . $result['Id'] . '"><img class="mod" src="images-memory\modifier.png"alt="modifier contact"></a></div></div>';
 
 
-    $sexe= $result['Sexe'];
+                    $sexe = $result['Sexe'];
 
-    if ($sexe == 'femme')
-    {
-        echo '<img class= src="images-memory\avatarfemme.png" alt="Logo memory">' . '<br>';
-    }
-
-    elseif ($sexe == 'homme') {
-        echo '<img src="images-memory\avatarhomme.png" alt="Logo memory">' . '<br>';
-    }
-  
-
-    if(isset($result)){
-        echo "Prénom : " .  $result ['Prenom'] . '<br>';
-        echo "Nom : " . $result ['Nom'] . '<br>';
-        echo "Teléphone portable : " . $result ['Telportable'] . '<br>';
-        echo "E-mail : " . $result ['Mail'] . '<br>';
-     }
-    }
+                    if ($sexe == 'femme') {
+                        echo '<img class= src="images-memory\avatarfemme.png" alt="Logo memory">' . '<br>';
+                    } elseif ($sexe == 'homme') {
+                        echo '<img src="images-memory\avatarhomme.png" alt="Logo memory">' . '<br>';
+                    }
 
 
+                    if (isset($result)) {
+                        echo "Prénom : " .  $result['Prenom'] . '<br>';
+                        echo "Nom : " . $result['Nom'] . '<br>';
+                        echo "Teléphone portable : " . $result['Telportable'] . '<br>';
+                        echo "E-mail : " . $result['Mail'] . '<br>';
+                    }
+                } catch (PDOException $e) {
+                    echo 'Impossible de traiter les données. Erreur : ' . $e->getMessage();
+                }
 
-catch (PDOException $e) {
-    echo 'Impossible de traiter les données. Erreur : ' . $e->getMessage();
-}
 
+                ?>
 
-?>
-
-</div>
-</div>
-  </div>
+            </div>
+        </div>
+    </div>
 </body>
