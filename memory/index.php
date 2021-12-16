@@ -17,33 +17,37 @@
 <body>
     <!-- Les marges -->
     <div class="container">
-    <div class="row ">
-        <div class="col-6">
-       <a href="index.php"><img class="logo" src="images-memory\logomermory.png" alt="Logo memory"></a> </div>
-       <div class="col-6">
-        <a href="ajoutcontact.php"><img class="ajouter" src="images-memory\ajouter.png" alt="Ajouter"></a> </div>
-    
-    </div>
+        <div class="row ">
+            <div class="col-6">
+                <a href="index.php"><img class="logo" src="images-memory\logomermory.png" alt="Logo memory"></a>
+            </div>
+            <div class="col-6">
+                <a href="ajoutcontact.php"><img class="ajouter" src="images-memory\ajouter.png" alt="Ajouter"></a>
+            </div>
+
+        </div>
 
         <!-- Trois colonnes -->
         <div class="row ">
 
 
             <?php
-// Connexion et tri de la table prénom 
+
+
 
             try {
+                // Connexion et tri de la table prénom 
+                require 'initialisation.php';
+                // require 'veriflogin.php';
 
-                $servername = "localhost";
-                $username = "root";
-                $password = "";
-                $dbname = "memory";
+                if (empty($_SESSION['result'])) {
+                    header("location: connexion.php");
+                    // echo "Identifiant ou mot de passe incorrect";
 
 
-                $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+                }
 
-                $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
+        echo '<button><a href="deconnexion.php">Deconnexion</a></button> ';
 
                 $tri = "SELECT Id, Prenom From Contact ORDER BY Prenom";
                 $sth = $conn->prepare($tri);
@@ -66,12 +70,12 @@
 
                 for ($i = ord('A'); $i <= ord('I'); $i++) {
                     $lettre = chr($i);
-                    echo $lettre. '<br>'. '<hr>';
+                    echo $lettre . '<br>' . '<hr>';
 
                     for ($y = 0; $y < count($result); $y++) {
                         if ($lettre == strtoupper(substr($result[$y]['Prenom'], 0, 1))) {
-                                      // lien pour accéder à la fiche contact
-                            echo '<a href="./fichecontact.php?id='.$result[$y]['Id'].'">'.$result[$y]['Prenom']. '</a><br>'.'<br>';
+                            // lien pour accéder à la fiche contact
+                            echo '<a href="./fichecontact.php?id=' . $result[$y]['Id'] . '">' . $result[$y]['Prenom'] . '</a><br>' . '<br>';
                         }
                     }
                 }
@@ -85,11 +89,11 @@
 
                 for ($i = ord('J'); $i <= ord('R'); $i++) {
                     $lettre = chr($i);
-                    echo $lettre. '<br>'. '<hr>';
+                    echo $lettre . '<br>' . '<hr>';
                     for ($y = 0; $y < count($result); $y++) {
                         if ($lettre == strtoupper(substr($result[$y]['Prenom'], 0, 1))) {
                             // lien pour accéder à la fiche contact
-                            echo '<a href="./fichecontact.php?id='.$result[$y]['Id'].'">'.$result[$y]['Prenom']. '</a><br>'.'<br>';
+                            echo '<a href="./fichecontact.php?id=' . $result[$y]['Id'] . '">' . $result[$y]['Prenom'] . '</a><br>' . '<br>';
                         }
                     }
                 }
@@ -104,11 +108,11 @@
 
                 for ($i = ord('S'); $i <= ord('Z'); $i++) {
                     $lettre = chr($i);
-                    echo $lettre. '<br>'. '<hr>';
+                    echo $lettre . '<br>' . '<hr>';
                     for ($y = 0; $y < count($result); $y++) {
                         if ($lettre == strtoupper(substr($result[$y]['Prenom'], 0, 1))) {
-                                      // lien pour accéder à la fiche contact
-                            echo '<a href="./fichecontact.php?id='.$result[$y]['Id'].'">'.$result[$y]['Prenom']. '</a><br>'.'<br>';
+                            // lien pour accéder à la fiche contact
+                            echo '<a href="./fichecontact.php?id=' . $result[$y]['Id'] . '">' . $result[$y]['Prenom'] . '</a><br>' . '<br>';
                         }
                     }
                 }

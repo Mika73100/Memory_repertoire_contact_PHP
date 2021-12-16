@@ -18,6 +18,9 @@
     <!-- Les marges -->
     <div class="container">
 
+   <button><a href="connexion.php">Connexion</a></button> 
+
+<h1>Nouvelle inscription</h1>
     <form action="utilisateur.php" method="post" class=" vertical-alignment">
             <div class="col-md-12">
 
@@ -31,7 +34,7 @@
             </div>
           
             <div class="col-12">
-            <input type="submit" id='submit' value='LOGIN'>
+            <input type="submit" id='submit' value='Inscription'>
             </div>
             <?php
                 

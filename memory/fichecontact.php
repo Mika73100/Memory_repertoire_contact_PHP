@@ -16,10 +16,10 @@
 
 <body>
     <!-- Les marges -->
-    <div class ="container">
+    <div class="container">
         <div class="row">
             <div class="col-13">
-                 <a href="index.php"><img class="logo" src="images-memory\logomermory.png" alt="Logo memory"></a> 
+                <a href="index.php"><img class="logo" src="images-memory\logomermory.png" alt="Logo memory"></a>
 
             </div>
         </div>
@@ -27,60 +27,61 @@
 
 
         <div class="row">
-    <div class="col-12">
-<?php
+            <div class="col-12">
 
-// Afficher la fiche contact
+            <button><a href="deconnexion.php">Deconnexion</a></button> 
+                <?php
 
-try {
+                // Afficher la fiche contact
 
-    $servername = "localhost";
-    $username = "root";
-    $password = "";
-    $dbname = "memory";
+                try {
 
+                    require 'initialisation.php';
+                    if (empty($_SESSION['result'])) {
+                        header("location: authentification.php");
+                        // echo "Identifiant ou mot de passe incorrect";
+                    }
 
-    $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+                    $tri = "SELECT * From Contact where Id= " . $_GET['id'];
+                    $sth = $conn->prepare($tri);
+                    $sth->execute();
+                    $result = $sth->fetch();
 
-    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
-
-    $tri = "SELECT * From Contact where Id= ".$_GET['id'];
-    $sth = $conn->prepare($tri);
-    $sth->execute();
-    $result = $sth->fetch();
-    echo '<div class="col-8"><a href="./modifiercontact.php?id='. $result['Id'] .'"><img class="mod" src="images-memory\modifier.png"alt="modifier contact"></a></div></div>';
-    echo ' <div class="row">
-    <div class="col-5">';
-
-    $sexe= $result['Sexe'];
-
-    if ($sexe == 'femme')
-    {
-        echo '<img class="avatar" src="images-memory\avatarfemme.png" alt="Logo memory">' . '<br>';
-    }
-
-    elseif ($sexe == 'homme') {
-        echo '<img class="avatar" src="images-memory\avatarhomme.png" alt="Logo homme">' . '<br>';
-    }
+                    echo ' <div class="row">
+                            <div class="col-6">';
+                    echo '<a href="./supprimer.php?id=' . $result['Id'] . '"><img class="suppimg" src="images-memory\corbeille.png" alt="supprimer contact"></a></div>';
+                    echo '
+    <div class="col-6"><a href="./modifiercontact.php?id=' . $result['Id'] . '"><img class="mod" src="images-memory\modifier.png"alt="modifier contact"></a></div></div>';
 
 
-    if (isset($result)){
-        echo "<div class=col2> Prénom : " .$result ['Prenom']   . '</div>';
-        echo "<div class=col2> Nom : " . $result ['Nom'] . '</div>';
-        echo "<div class=col2> Teléphone portable : " . $result ['Telportable'] . '</div>';
-        echo "<div class=col2> E-mail : " . $result ['Mail'] . '</div>';
-     }
-    }
-
-catch (PDOException $e) {
-    echo 'Impossible de traiter les données. Erreur : ' . $e->getMessage();
-}
+                    $sexe = $result['Sexe'];
+                    if ($sexe == 'femme')
+                    {
+                        echo '<img class="avatar" src="images-memory\avatarfemme.png" alt="Logo memory">' . '<br>';
+                    }
+                
+                    elseif ($sexe == 'homme') {
+                        echo '<img class="avatar" src="images-memory\avatarhomme.png" alt="Logo homme">' . '<br>';
+                    }
 
 
-?>
+                    if (isset($result)) {
+                        echo "<div class=col2> Prénom : " .$result ['Prenom']   . '</div>';
+                        echo "<div class=col2> Nom : " . $result ['Nom'] . '</div>';
+                        echo "<div class=col2> Teléphone portable : " . $result ['Telportable'] . '</div>';
+                        echo "<div class=col2> E-mail : " . $result ['Mail'] . '</div>';
+                    }
+                } catch (PDOException $e) {
+                    echo 'Impossible de traiter les données. Erreur : ' . $e->getMessage();
+                }
 
-</div>
-<div col13> '<a href="./supprimer.php?id='. $result['Id'] .'"><img class="suppimg" src="images-memory\corbeille.png" alt="supprimer contact"></a></div>';
+
+                ?>
+
+            </div>
+        </div>
+    </div>
+   
+
 
 </body></html>

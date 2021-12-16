@@ -15,20 +15,19 @@
 <body>
 <?php
 
+
+require 'initialisation.php';
+
+if (empty($_SESSION['result']) )
+    {
+header("location: authentification.php");
+// echo "Identifiant ou mot de passe incorrect";
+}
 // Afficher la fiche contact
 
 try {
 
-    $servername = "localhost";
-    $username = "root";
-    $password = "";
-    $dbname = "memory";
-
-
-    $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
-
-    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
+    
 
     $tri = "SELECT * From Contact where Id= ".$_GET['id'];
     $sth = $conn->prepare($tri);
@@ -45,7 +44,10 @@ catch (PDOException $e) {
       <!-- Logo -->
     <a href="index.php"><img class="logo" src="images-memory\logomermory.png" alt="Logo memory"></a> 
 
-<!-- Formulaire ajout contact -->
+    <button><a href="deconnexion.php">Deconnexion</a></button>
+    <h1>Modifier contact</h1>
+
+<!-- Formulaire modifier contact -->
 
         <form action="modifier.php?id=<?php echo $result['Id']; ?>" method="post" class=" vertical-alignment">
             <div class="col-md-12">

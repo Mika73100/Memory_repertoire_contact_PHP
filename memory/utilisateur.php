@@ -1,25 +1,7 @@
 <?php 
 
+require 'initialisation.php';
 
-try {
-
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "memory";
-
-
-$conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
-$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
-
-
-}
-
-
-catch (PDOException $e) {
-    echo 'Impossible de traiter les données. Erreur : ' . $e->getMessage();
-}
 
 try {
 $utilisateur = $_POST["utilisateur"];
@@ -34,7 +16,7 @@ $util->bindParam(':utilisateur',$utilisateur);
 $util->bindParam(':motdepasse',$motdepasse);
 
 $util->execute();
-
+header("location: index.php");
 
 }
 

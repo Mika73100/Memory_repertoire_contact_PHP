@@ -19,24 +19,17 @@
     <div class="col-6">
     <a href="index.php"><img class="logo" src="images-memory\logomermory.png" alt="Logo memory"></a> 
 
+
+
     <?php
+    
  
-    try {
-        $servername = "localhost";
-        $username = "root";
-        $password = "";
-        $dbname = "memory";
-    
-    
-        $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
-    
-        $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
-     }
-
-        catch (PDOException $e) {
-            echo "Erreur : " . $e->getMessage();
-        }
+require 'initialisation.php';
+if (empty($_SESSION['result']) )
+    {
+header("location: authentification.php");
+// echo "Identifiant ou mot de passe incorrect";
+}
 
     $nom = $_POST["nom"];
     $prenom = $_POST["prenom"];
