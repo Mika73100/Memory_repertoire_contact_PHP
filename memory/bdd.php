@@ -38,18 +38,6 @@ try {
 
 // Création table Contact 
 
-    $contact = "CREATE TABLE Contact
-    (
-Id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-Nom VARCHAR(40) NOT NULL,
-Prenom VARCHAR(40) NOT NULL,
-Telportable  VARCHAR(20) NOT NULL,
-Mail VARCHAR(50) NOT NULL,
-Sexe VARCHAR (40) NOT NULL)";
-
-    $conn->exec($contact);
-    echo 'Table bien créée !';
-
 }
 
 catch (PDOException $e) {
