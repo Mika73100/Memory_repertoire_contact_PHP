@@ -33,23 +33,37 @@
     <form action="table.php" method="post" class=" vertical-alignment">
 
 
-      <div class="col12">
-        <label for="nom" class="form-label">Nom</label>
-        <input type="text" class="form-control" name="nom" id="nom" placeholder="Nom" required>
-      </div>
+            <div class="col-12">
+              <label for="nom" class="form-label">Nom</label>
+              <input type="text" class="form-control" name="nom" id="nom" placeholder="Nom" required>
+            </div>
+            
+            
+            <div class="col-12">
+              <label for="prenom" class="form-label">Prénom</label>
+              <input type="text" class="form-control" name="prenom" id="prenom" placeholder="Prénom" required>
+            </div>
 
 
-      <div class="col12">
-        <label for="prenom" class="form-label">Prénom</label>
-        <input type="text" class="form-control" name="prenom" id="prenom" placeholder="Prénom" required>
-      </div>
+            <div class="col-12">
+              <label for="mail" class="form-label">Mail</label>
+              <input type="email" class="form-control" name="mail" id="mail" placeholder="E-mail" required>
+            </div>
 
 
-      <div class="col12">
-        <label for="mail" class="form-label">Mail</label>
-        <input type="email" class="form-control" name="mail" id="mail" placeholder="E-mail" required>
-      </div>
+            <div class="col-12">
+              <label for="telportable" class="form-label">Numéro de portable</label>
+              <input type="tel" class="form-control" name="telportable" id="telportable" placeholder="01 23 45 67 89" minlength="9" maxlength="14" required>
+            </div>
 
+                      
+            <div class="col-12">
+              <label for="inputState" class="form-label">Sexe</label>
+              <select id="inputState" name="sexe" class="form-select">
+                <option value="homme" selected>Homme</option>
+                <option value="femme">Femme</option>
+              </select>
+            </div>
 
       <div class="col12">
         <label for="telportable" class="form-label">Numéro de portable</label>

@@ -55,19 +55,21 @@
 
 
                     $sexe = $result['Sexe'];
-
-                    if ($sexe == 'femme') {
-                        echo '<img class= src="images-memory\avatarfemme.png" alt="Logo memory">' . '<br>';
-                    } elseif ($sexe == 'homme') {
-                        echo '<img src="images-memory\avatarhomme.png" alt="Logo memory">' . '<br>';
+                    if ($sexe == 'femme')
+                    {
+                        echo '<img class="avatar" src="images-memory\avatarfemme.png" alt="Logo memory">' . '<br>';
+                    }
+                
+                    elseif ($sexe == 'homme') {
+                        echo '<img class="avatar" src="images-memory\avatarhomme.png" alt="Logo homme">' . '<br>';
                     }
 
 
                     if (isset($result)) {
-                        echo "Prénom : " .  $result['Prenom'] . '<br>';
-                        echo "Nom : " . $result['Nom'] . '<br>';
-                        echo "Teléphone portable : " . $result['Telportable'] . '<br>';
-                        echo "E-mail : " . $result['Mail'] . '<br>';
+                        echo "<div class=col2> Prénom : " .$result ['Prenom']   . '</div>';
+                        echo "<div class=col2> Nom : " . $result ['Nom'] . '</div>';
+                        echo "<div class=col2> Teléphone portable : " . $result ['Telportable'] . '</div>';
+                        echo "<div class=col2> E-mail : " . $result ['Mail'] . '</div>';
                     }
                 } catch (PDOException $e) {
                     echo 'Impossible de traiter les données. Erreur : ' . $e->getMessage();
@@ -79,4 +81,7 @@
             </div>
         </div>
     </div>
-</body>
+   
+
+
+</body></html>

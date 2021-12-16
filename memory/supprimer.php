@@ -46,6 +46,10 @@ echo "Erreur : " . $e->getMessage();
  ?>
     </div>
 
+    <?php
+  header('Location: http://localhost/Memory/memory/index.php');
+  exit();
+?>
 </body>
 
 </html>
