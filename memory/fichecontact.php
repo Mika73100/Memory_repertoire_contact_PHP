@@ -16,9 +16,18 @@
 
 <body>
     <!-- Les marges -->
-    <div class="container">
-    <a href="index.php"><img class="logo" src="images-memory\logomermory.png" alt="Logo memory"></a> 
+    <div class ="container">
+        <div class="row">
+            <div class="col-13">
+                 <a href="index.php"><img class="logo" src="images-memory\logomermory.png" alt="Logo memory"></a> 
 
+            </div>
+        </div>
+
+
+
+        <div class="row">
+    <div class="col-12">
 <?php
 
 // Afficher la fiche contact
@@ -41,15 +50,18 @@ try {
     $sth->execute();
     $result = $sth->fetch();
 
-    
-
+    echo ' <div class="row">
+    <div class="col-6">';
+    echo '<a href="./supprimer.php?id='. $result['Id'] .'"><img class="suppimg" src="images-memory\corbeille.png" alt="supprimer contact"></a></div>';
+    echo '
+    <div class="col-6"><a href="./modifiercontact.php?id='. $result['Id'] .'"><img class="mod" src="images-memory\modifier.png"alt="modifier contact"></a></div></div>';
 
 
     $sexe= $result['Sexe'];
 
     if ($sexe == 'femme')
     {
-        echo '<img src="images-memory\avatarfemme.png" alt="Logo memory">' . '<br>';
+        echo '<img class= src="images-memory\avatarfemme.png" alt="Logo memory">' . '<br>';
     }
 
     elseif ($sexe == 'homme') {
@@ -62,22 +74,19 @@ try {
         echo "Nom : " . $result ['Nom'] . '<br>';
         echo "Teléphone portable : " . $result ['Telportable'] . '<br>';
         echo "E-mail : " . $result ['Mail'] . '<br>';
-     
-   
-   
-} }
+     }
+    }
+
+
 
 catch (PDOException $e) {
     echo 'Impossible de traiter les données. Erreur : ' . $e->getMessage();
 }
 
 
-
-echo '<a href="./supprimer.php?id='. $result['Id'] .'"><img class="suppimg" src="images-memory\corbeille.png" alt="supprimer contact"></a><br>';
-echo '<a href="./modifiercontact.php?id='. $result['Id'] .'"><img class="mod" src="images-memory\modifier.png"alt="modifier contact"></a><br>';
 ?>
 
-
-
+</div>
+</div>
   </div>
 </body>

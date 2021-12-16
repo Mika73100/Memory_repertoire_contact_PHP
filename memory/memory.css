@@ -1,33 +1,72 @@
+:root{
+    --primary:#FFFFFF;
+}
+
+
 form {
     margin: 0 auto;
     width: 400px;
-text-align: center;
+    text-align: center;
 
 }
 .ajouter {
-
-width: 100px;
-
-
+    width: 100px;
 }
 
 body {
     background-image: url("./images-memory/background.jpg") ;
     background-repeat: no-repeat;
     background-size: cover;
-
+    padding: 30px;
+    background-color: #fcfcfc;
 }
 
 .logo {
-width: 200px;
-
-}
+    width: 200px;
+    margin-right : 0 auto;
+    }
 
 .suppimg {
-
     width : 100px;
+    display: flex;
 }
 
 .mod {
-    width : 100px;  
+    width : 100px;
+    display: flex;  
+}
+
+a{
+    color : var(--primary);
+    text-decoration : none;
+    display: flex;
+}
+
+
+
+div.col-6 {     
+  margin: 30px auto;
+  width: 250px; 
+  height: 100px;
+  border-radius: 3px;
+  line-height: 30px;
+  color: var(--primary);
+}
+
+div.col12 {
+    padding-bottom: 30px;
+    color : var(--primary);
+}
+
+.form-control {
+    border-radius: 5rem;
+}
+
+.form-select {
+    border-radius: 5rem;
+}
+
+.btn-primary {
+    border-radius: 5rem;
+    font-size: large;
 }

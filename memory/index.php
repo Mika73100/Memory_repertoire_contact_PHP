@@ -17,12 +17,13 @@
 <body>
     <!-- Les marges -->
     <div class="container">
-
-
-       <a href="index.php"><img class="logo" src="images-memory\logomermory.png" alt="Logo memory"></a> 
-
-        <a href="ajoutcontact.php"><img class="ajouter" src="images-memory\ajouter.png" alt="Ajouter"></a>
-
+    <div class="row ">
+        <div class="col-6">
+       <a href="index.php"><img class="logo" src="images-memory\logomermory.png" alt="Logo memory"></a> </div>
+       <div class="col-6">
+        <a href="ajoutcontact.php"><img class="ajouter" src="images-memory\ajouter.png" alt="Ajouter"></a> </div>
+    
+    </div>
 
         <!-- Trois colonnes -->
         <div class="row ">

@@ -1,17 +1,17 @@
 
 <?php
 
-// Connexion Serveur 
+    // Connexion Serveur 
 
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "memory";
+    $servername = "localhost";
+    $username = "root";
+    $password = "";
+    $dbname = "memory";
 
 
-$conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+    $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
 
-$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 
 
@@ -32,13 +32,13 @@ try {
     INSERT INTO Contact(nom, prenom, mail, telportable, sexe)
     VALUES(:nom, :prenom, :mail, :telportable, :sexe)");
 
-$contact->bindParam(':nom',$nom);
-$contact->bindParam(':prenom',$prenom);
-$contact->bindParam(':mail',$mail);
-$contact->bindParam(':telportable',$telportable);
-$contact->bindParam(':sexe',$sexe);
+    $contact->bindParam(':nom',$nom);
+    $contact->bindParam(':prenom',$prenom);
+    $contact->bindParam(':mail',$mail);
+    $contact->bindParam(':telportable',$telportable);
+    $contact->bindParam(':sexe',$sexe);
 
-$contact->execute();
+    $contact->execute();
 
     
 }

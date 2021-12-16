@@ -66,7 +66,7 @@ catch (PDOException $e) {
               <input type="tel" class="form-control" name="telportable" id="telportable" placeholder="01 23 45 67 89" minlength="9" maxlength="14" required value="<?php echo $result['Telportable']; ?>">
             </div>
                       
-            <div class="col-md-3">
+            <div class="col-md-12">
               <label for="inputState" class="form-label">Sexe</label>
               <select id="inputState" name="sexe" class="form-select">
                 <option value="homme" <?php if ($result['Sexe'] == 'homme'){ echo "selected";} ?>>Homme</option>
