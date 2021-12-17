@@ -14,6 +14,9 @@
 
 <body>
 
+
+<!-------- le lien pour crée un login ------------------->
+
   <?php
   session_start();
   if (empty($_SESSION['result'])) {
@@ -23,12 +26,17 @@
 
   ?>
   <div class="container">
-    <!-- Logo -->
+
+
+    <!------------------------------------ Logo--------------------------------- -->
+
     <a href="index.php"><img class="logo" src="images-memory\logomermory.png" alt="Logo memory"></a>
 
+
+    <!-------------------------------------bouton de connection  ------------------->
   <button><a href="deconnexion.php">Deconnexion</a></button>
 
-    <!-- Formulaire ajout contact -->
+    <!------------------------ Formulaire ajout contact ------------------------->
 
     <form action="table.php" method="post" class=" vertical-alignment">
 
@@ -56,7 +64,7 @@
     <input type="tel" class="form-control" name="telportable" id="telportable" placeholder="01 23 45 67 89" minlength="9" maxlength="14" required>
     </div>
 
-                      
+    <!-------------------crée un choix dans le formulaire ------------->    
     <div class="col-12">
     <label for="inputState" class="form-label">Sexe</label>
     <select id="inputState" name="sexe" class="form-select">
@@ -65,19 +73,12 @@
     </select>
     </div>
 
-
-      <div class="col-12">
-        <button type="envoyer" class="btn-primary">Ajouter</button>
-      </div>
+    <!----------------------------------crée un boutton ajouter dans une div ---------->
+      
+    <div class="col-12">
+    <button type="envoyer" class="btn-primary">Ajouter</button>
+    </div>
     </form>
-
-
-   
-
-  </div>
-
-
-
-
-</body>
-</html>
+    </div>
+    </body>
+    </html>

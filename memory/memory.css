@@ -77,7 +77,12 @@ div.col-6 {
 }
 
 .row div.col-12 {
-    padding-bottom: 15px;
+    padding-bottom: 30px;
+    color : var(--primary);
+}
+
+div.col-12 {
+    margin-bottom: 20px;
     color : var(--primary);
 }
 
