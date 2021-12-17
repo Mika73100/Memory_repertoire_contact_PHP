@@ -37,13 +37,14 @@ form {
 .suppimg {
     width : 100px;
     display: flex;
-    margin-left: 68%;
+    margin-left: 80%;
+    margin-top: 30px;
 }
 
 .mod {
     width : 100px;
     display: flex;
-    margin-left: 100%;  
+    margin-left: 90%;  
 }
 
 .avatar {
@@ -75,8 +76,8 @@ div.col-6 {
   color: var(--primary);
 }
 
-div.col-12 {
-    padding-bottom: 30px;
+.row div.col-12 {
+    padding-bottom: 15px;
     color : var(--primary);
 }
 
@@ -84,12 +85,17 @@ div.col13 {
     margin:auto;
 }
 
-.row div.col-5 {
+.row div.col-8 {
     margin: auto;
     text-align: center;
     line-height: 2em;
 }
 
+.row div.col-9 {
+    margin: auto;
+    text-align: center;
+    line-height: 2em;
+}
 div.col2 {
     background-color:var(--primary) ;
     margin-bottom: 15px;
@@ -123,4 +129,23 @@ div.col2 {
     border-radius: 5rem;
     font-size: large;
     margin-top: 15px;
+}
+
+button {
+    border-radius: 5rem;
+    font-size: smol;
+    margin-top: 15px;
+    background-color: #0d6efd;
+    line-height: 30px;
+    border:#0d6efd;
+}
+
+input {
+    border-radius: 5rem;
+    font-size: smol;
+    margin-top: 15px;
+    background-color: #0d6efd;
+    line-height: 30px;
+    border:#0d6efd;
+    color: white;
 }

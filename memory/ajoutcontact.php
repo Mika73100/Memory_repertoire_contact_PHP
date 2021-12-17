@@ -51,50 +51,35 @@
             </div>
 
 
-            <div class="col-12">
-              <label for="telportable" class="form-label">Numéro de portable</label>
-              <input type="tel" class="form-control" name="telportable" id="telportable" placeholder="01 23 45 67 89" minlength="9" maxlength="14" required>
-            </div>
+    <div class="col-12">
+    <label for="telportable" class="form-label">Numéro de portable</label>
+    <input type="tel" class="form-control" name="telportable" id="telportable" placeholder="01 23 45 67 89" minlength="9" maxlength="14" required>
+    </div>
 
                       
-            <div class="col-12">
-              <label for="inputState" class="form-label">Sexe</label>
-              <select id="inputState" name="sexe" class="form-select">
-                <option value="homme" selected>Homme</option>
-                <option value="femme">Femme</option>
-              </select>
-            </div>
+    <div class="col-12">
+    <label for="inputState" class="form-label">Sexe</label>
+    <select id="inputState" name="sexe" class="form-select">
+    <option value="homme" selected>Homme</option>
+    <option value="femme">Femme</option>
+    </select>
+    </div>
 
-      <div class="col12">
-        <label for="telportable" class="form-label">Numéro de portable</label>
-        <input type="tel" class="form-control" name="telportable" id="telportable" placeholder="01 23 45 67 89" minlength="9" maxlength="14" required>
-      </div>
+            
 
-
-      <div class="col12">
-        <label for="inputState" class="form-label">Sexe</label>
-        <select id="inputState" name="sexe" class="form-select">
-          <option value="homme" selected>Homme</option>
-          <option value="femme">Femme</option>
-        </select>
-      </div>
-
-
-      <div class="col-12">
-        <button type="envoyer" class="btn-primary">Ajouter</button>
-      </div>
+            
+    <div class="col-12">
+    <button type="envoyer" class="btn-primary">Ajouter</button>
+    </div>
     </form>
 
 
 
 
 
-
-  </div>
-
+  
 
 
 
 </body>
-
 </html>

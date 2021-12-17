@@ -45,7 +45,7 @@ catch (PDOException $e) {
     <a href="index.php"><img class="logo" src="images-memory\logomermory.png" alt="Logo memory"></a> 
 
     <button><a href="deconnexion.php">Deconnexion</a></button>
-    <h1>Modifier contact</h1>
+
 
 <!-- Formulaire modifier contact -->
 
@@ -83,28 +83,6 @@ catch (PDOException $e) {
 
           
 
-
-
-
-
-
-
-
-
-
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
 </body>
 </html>

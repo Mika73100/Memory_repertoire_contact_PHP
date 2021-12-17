@@ -36,4 +36,8 @@ catch(PDOException $e){
 
 
 ?>
+    <?php
+  header('Location: ./index.php');
+  exit();
+?>
 
