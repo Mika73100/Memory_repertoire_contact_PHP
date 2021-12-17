@@ -12,7 +12,7 @@
 
     <title>Memory</title>
 
-    <button><a href="deconnexion.php">Deconnexion</a></button> ';
+    <button><a href="deconnexion.php">Deconnexion</a></button> 
 </head>
 
 
