@@ -14,7 +14,10 @@
 </head>
 
 
+
 <body>
+
+<button><a href="deconnexion.php">Deconnexion</a></button> 
     <!-- Les marges -->
     <div class="container">
         <div class="row">
@@ -29,7 +32,6 @@
         <div class="row">
             <div class="col-12">
 
-            <button><a href="deconnexion.php">Deconnexion</a></button> 
                 <?php
 
                 // Afficher la fiche contact

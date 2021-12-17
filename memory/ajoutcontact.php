@@ -27,14 +27,14 @@
   ?>
   <div class="container">
 
-
+<button><a href="deconnexion.php">Deconnexion</a></button>
     <!------------------------------------ Logo--------------------------------- -->
 
     <a href="index.php"><img class="logo" src="images-memory\logomermory.png" alt="Logo memory"></a>
 
 
     <!-------------------------------------bouton de connection  ------------------->
-  <button><a href="deconnexion.php">Deconnexion</a></button>
+  
 
     <!------------------------ Formulaire ajout contact ------------------------->
 

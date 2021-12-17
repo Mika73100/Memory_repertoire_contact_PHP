@@ -20,7 +20,7 @@
     <!-- Les marges -->
     <div class="container">
         <div class="row ">
-            <div class="col-6">
+            <div class="logo">
                 <a href="index.php"><img class="logo" src="images-memory\logomermory.png" alt="Logo memory"></a>
             </div>
             <div class="col-6">
