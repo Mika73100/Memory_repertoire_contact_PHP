@@ -67,7 +67,7 @@ try  {
     </div>
 
     <?php
-  header('Location: http://localhost/Memory/memory/index.php');
+  header('Location: index.php');
   exit();
 ?>
 
