@@ -10,7 +10,7 @@
     <link href="./memory.css" rel="stylesheet">
     <link rel="icon" type="images/png" href="images-memory\black.png">
 
-    <title>Memory</title>
+    <title>Supprimer</title>
 </head>
 
 

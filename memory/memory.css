@@ -12,6 +12,7 @@ body {
 }
 
 
+ 
 /*--------------------------------------------------*/
 form {
     margin: 0 auto;
@@ -57,7 +58,7 @@ form {
 a{
     color : var(--primary);
     text-decoration : none;
-    display: flex;
+   
 }
 
 /*-------------------------les colonnes -------------*/
@@ -129,13 +130,12 @@ div.col2 {
 .btn-primary {
     border-radius: 5rem;
     font-size: large;
-}
-
-.btn-primary {
     border-radius: 5rem;
     font-size: large;
     margin-top: 15px;
+    text-align: center;
 }
+
 
 button {
     border-radius: 5rem;
@@ -144,6 +144,7 @@ button {
     background-color: #0d6efd;
     line-height: 30px;
     border:#0d6efd;
+    text-align: center;
 }
 
 input {
@@ -155,3 +156,4 @@ input {
     border:#0d6efd;
     color: white;
 }
+

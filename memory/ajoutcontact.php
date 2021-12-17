@@ -25,47 +25,49 @@
   }
 
   ?>
-  <div class="container">
+  <div class="container-sm">
+<div class="raw">
+  <!------------------------------------ Logo--------------------------------- -->
+
+  <a href="index.php"><img class="logo" src="images-memory\logomermory.png" alt="Logo memory"></a>
 
 
-    <!------------------------------------ Logo--------------------------------- -->
+<!-------------------------------------bouton de connection  ------------------->
+<button ><a href="deconnexion.php">Deconnexion</a></button>
 
-    <a href="index.php"><img class="logo" src="images-memory\logomermory.png" alt="Logo memory"></a>
 
-
-    <!-------------------------------------bouton de connection  ------------------->
-  <button><a href="deconnexion.php">Deconnexion</a></button>
+    
 
     <!------------------------ Formulaire ajout contact ------------------------->
 
     <form action="table.php" method="post" class=" vertical-alignment">
 
 
-            <div class="col-12">
+            <div class="col">
               <label for="nom" class="form-label">Nom</label>
               <input type="text" requierd pattern="^[A-Za-zéè '-]+$" class="form-control" name="nom" id="nom" maxlength="20" placeholder="Nom" required>
             </div>
             
             
-            <div class="col-12">
+            <div class="col">
               <label for="prenom" class="form-label">Prénom</label>
               <input type="text" requierd pattern="^[A-Za-zéè '-]+$" class="form-control" name="prenom" id="prenom"  maxlength="20" placeholder="Prénom" required>
             </div>
 
 
-            <div class="col-12">
+            <div class="col">
               <label for="mail" class="form-label">Mail</label>
               <input type="email" requierd class="form-control" name="mail" id="mail" placeholder="E-mail" required>
             </div>
 
 
-    <div class="col-12">
+    <div class="col">
     <label for="telportable" class="form-label">Numéro de portable</label>
     <input type="tel" class="form-control" name="telportable" id="telportable" placeholder="01 23 45 67 89" minlength="9" maxlength="14" required>
     </div>
 
     <!-------------------crée un choix dans le formulaire ------------->    
-    <div class="col-12">
+    <div class="col">
     <label for="inputState" class="form-label">Sexe</label>
     <select id="inputState" name="sexe" class="form-select">
     <option value="homme" selected>Homme</option>
@@ -74,11 +76,12 @@
     </div>
 
     <!----------------------------------crée un boutton ajouter dans une div ---------->
-      
-    <div class="col-12">
-    <button type="envoyer" class="btn-primary">Ajouter</button>
+       
+    <div class="col">
+    <button type="envoyer" class="btn-primary text-center ">Ajouter</button>
     </div>
     </form>
+    </div>
     </div>
     </body>
     </html>

@@ -12,7 +12,7 @@
 
     <title>Memory</title>
 
-    <button><a href="deconnexion.php">Deconnexion</a></button> 
+   
 </head>
 
 
@@ -22,6 +22,8 @@
         <div class="row ">
             <div class="col-6">
                 <a href="index.php"><img class="logo" src="images-memory\logomermory.png" alt="Logo memory"></a>
+                <button><a href="deconnexion.php">Deconnexion</a></button> 
+
             </div>
             <div class="col-6">
                 <a href="ajoutcontact.php"><img class="ajouter" src="images-memory\ajouter.png" alt="Ajouter"></a>
