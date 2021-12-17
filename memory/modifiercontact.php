@@ -52,16 +52,16 @@ catch (PDOException $e) {
         <form action="modifier.php?id=<?php echo $result['Id']; ?>" method="post" class=" vertical-alignment">
             <div class="col-md-12">
               <label for="nom" class="form-label">Nom</label>
-              <input type="text" class="form-control" name="nom" id="nom" placeholder="Nom" value="<?php echo $result['Nom']; ?>"required>
+              <input type="text"  requierd pattern="^[A-Za-z '-]+$" class="form-control" name="nom" id="nom" placeholder="Nom" value="<?php echo $result['Nom'];  ?>"required maxlength="20">
             </div>
           
             <div class="col-12">
               <label for="prenom" class="form-label">Prénom</label>
-              <input type="text" class="form-control" name="prenom" id="prenom" placeholder="Prénom" value="<?php echo $result['Prenom']; ?>"required>
+              <input type="text"  requierd pattern="^[A-Za-z '-]+$" class="form-control" name="prenom" id="prenom" placeholder="Prénom" value="<?php echo $result['Prenom']; ?>"required maxlength="20">
             </div>
             <div class="col-12">
               <label for="mail" class="form-label">Mail</label>
-              <input type="email" class="form-control" name="mail" id="mail" placeholder="E-mail" value=" <?php echo $result['Mail']; ?>" required>
+              <input type="email" requierd pattern="^[A-Za-z]+@{1}[A-Za-z]+\.{1}[A-Za-z]{2,}$" class="form-control" name="mail" id="mail" placeholder="E-mail" value=" <?php echo $result['Mail']; ?>" required>
             </div>
             <div class="col-md-12">
               <label for="telportable" class="form-label">Numéro de portable</label>

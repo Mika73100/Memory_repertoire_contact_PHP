@@ -98,7 +98,7 @@ div.col13 {
 }
 div.col2 {
     background-color:var(--primary) ;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
     border-radius: 25px;
 }
 
@@ -114,6 +114,7 @@ div.col2 {
 
 .form-label {
     color:var(--primary);
+    margin-bottom: 20px;
 }
 
 

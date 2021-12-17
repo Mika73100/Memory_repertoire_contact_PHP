@@ -17,59 +17,89 @@
 <body>
     <!-- Les marges -->
     <div class="col-6">
-    <a href="index.php"><img class="logo" src="images-memory\logomermory.png" alt="Logo memory"></a> 
+        <a href="index.php"><img class="logo" src="images-memory\logomermory.png" alt="Logo memory"></a>
 
 
 
-    <?php
-    
- 
-require 'initialisation.php';
-if (empty($_SESSION['result']) )
-    {
-header("location: authentification.php");
-// echo "Identifiant ou mot de passe incorrect";
-}
+        <?php
 
-    $nom = $_POST["nom"];
-    $prenom = $_POST["prenom"];
-    $mail = $_POST["mail"];
-    $telportable = $_POST["telportable"];
-    $sexe = $_POST["sexe"];
+// Récupérer le contenu de la page initialisation.php
 
-try  {
-
-    $sth = $conn->prepare(" UPDATE contact SET Nom= :nom, Prenom= :prenom, Mail= :mail, Telportable= :telportable, Sexe= :sexe where Id= :id");
+        require 'initialisation.php';
 
 
-    $sth->bindParam(':nom',$nom);
-    $sth->bindParam(':prenom',$prenom);
-    $sth->bindParam(':mail',$mail);
-    $sth->bindParam(':telportable',$telportable);
-    $sth->bindParam(':sexe',$sexe);
-    $sth->bindParam(':id', $_GET['id']);
+// On insère les données recues si les champs spnt remplis (contrer les attaques XXS et l'injection)   
 
-
-    $sth->execute();
-
-
-
-
-    echo 'Contact modifié';}
-
-
-
-        catch (PDOException $e) {
-            echo "Erreur : " . $e->getMessage();
+        if (empty($_SESSION['result'])) {
+            header("location: authentification.php");
+         
         }
 
- ?>
+
+// Préparation de la requête pour modifier des contacts via le formulaire HTML
+
+        $nom = valid_donnees($_POST["nom"]);
+        $prenom = valid_donnees($_POST["prenom"]);
+        $mail = valid_donnees($_POST["mail"]);
+        $telportable = valid_donnees($_POST["telportable"]);
+        $sexe = valid_donnees($_POST["sexe"]);
+
+//   Validation des données du formulaire sur serveur via les trois fonctions
+
+        function valid_donnees($donnees)
+        {
+            $donnees = trim($donnees);
+            $donnees = stripslashes($donnees);
+            $donnees = htmlspecialchars($donnees);
+            return $donnees;
+        }
+
+/* Si les champs prenom et mail ne sont pas vides et si les donnees ont
+     bien la forme attendue...*/
+        if (
+            !empty($nom)
+            && strlen($nom) <= 20
+            && preg_match("/^[A-Za-z '-]+$/", $nom)
+            && !empty($prenom)
+            && strlen($prenom) <= 20
+            && preg_match("/^[A-Za-z '-]+$/", $prenom)
+            && !empty($mail)
+            && filter_var($mail, FILTER_VALIDATE_EMAIL)
+            && !empty($telportable)
+        ) {
+
+            try {
+
+                // Modifier contact 
+
+                $sth = $conn->prepare(" UPDATE contact SET Nom= :nom, Prenom= :prenom, Mail= :mail, Telportable= :telportable, Sexe= :sexe where Id= :id");
+
+
+                $sth->bindParam(':nom', $nom);
+                $sth->bindParam(':prenom', $prenom);
+                $sth->bindParam(':mail', $mail);
+                $sth->bindParam(':telportable', $telportable);
+                $sth->bindParam(':sexe', $sexe);
+                $sth->bindParam(':id', $_GET['id']);
+
+
+                $sth->execute();
+
+
+
+
+                echo 'Contact modifié';
+            } catch (PDOException $e) {
+                echo "Erreur : " . $e->getMessage();
+            }
+        }
+        ?>
     </div>
 
     <?php
-  header('Location: index.php');
-  exit();
-?>
+    //header('Location: index.php');
+    exit();
+    ?>
 
 </body>
 

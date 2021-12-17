@@ -19,7 +19,8 @@ try {
 
 try {
 
-    
+    // Connexion base de données 
+     
     $servername = "localhost";
     $username = "root";
     $password = "";
@@ -30,7 +31,7 @@ try {
 
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-// Création table Contact 
+ 
 
 }
 

@@ -35,19 +35,19 @@
 
             <div class="col-12">
               <label for="nom" class="form-label">Nom</label>
-              <input type="text" class="form-control" name="nom" id="nom" placeholder="Nom" required>
+              <input type="text" requierd pattern="^[A-Za-zéè '-]+$" class="form-control" name="nom" id="nom" maxlength="20" placeholder="Nom" required>
             </div>
             
             
             <div class="col-12">
               <label for="prenom" class="form-label">Prénom</label>
-              <input type="text" class="form-control" name="prenom" id="prenom" placeholder="Prénom" required>
+              <input type="text" requierd pattern="^[A-Za-zéè '-]+$" class="form-control" name="prenom" id="prenom"  maxlength="20" placeholder="Prénom" required>
             </div>
 
 
             <div class="col-12">
               <label for="mail" class="form-label">Mail</label>
-              <input type="email" class="form-control" name="mail" id="mail" placeholder="E-mail" required>
+              <input type="email" requierd class="form-control" name="mail" id="mail" placeholder="E-mail" required>
             </div>
 
 

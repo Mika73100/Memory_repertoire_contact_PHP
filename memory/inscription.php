@@ -25,12 +25,12 @@
             <div class="col-md-12">
 
               <label for="identifiant" class="form-label">Identifiant</label>
-              <input type="text" class="form-control" name="utilisateur" id="identifiant" placeholder="Entrer votre identifiant" required>
+              <input type="text" requierd pattern="^[A-Za-zéè '-]+$" class="form-control" name="utilisateur" id="identifiant" placeholder="Entrer votre identifiant" required>
             </div>
           
             <div class="col-12">
               <label for="motdepasse" class="form-label">Mot de passe</label>
-              <input type="password" class="form-control" name="motdepasse" id="motdepasse" placeholder="Entrer le mot de passe" required>
+              <input type="password" requierd pattern="^[A-Za-zéè '-]+$" class="form-control" name="motdepasse" id="motdepasse" placeholder="Entrer le mot de passe" required>
             </div>
           
             <div class="col-12">
