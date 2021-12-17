@@ -44,7 +44,6 @@ form {
 
 .mod {
     width : 100px;
-    display: flex;
     margin-left: 90%;  
 }
 
@@ -83,7 +82,7 @@ div.col-6 {
 }
 
 div.col-12 {
-    margin-bottom: 20px;
+    margin-top: 15px;
     color : var(--primary);
 }
 
@@ -157,3 +156,32 @@ input {
     color: white;
 }
 
+
+/*-------------------------------------*/
+
+/* mobile */
+@media screen and (max-width:750px){
+
+form {
+    width: 300px;
+}
+
+.col-9 {
+    width:100%
+}
+
+div.col-8 {
+    margin-left: 0%;
+}
+
+div.col-6 {
+    margin: 40px 100px;
+}
+.logo {
+    margin-bottom: 0px;
+    width: 95%;
+    margin-right:60%;
+}
+
+
+}

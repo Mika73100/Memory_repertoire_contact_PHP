@@ -31,12 +31,14 @@
 
   <a href="index.php"><img class="logo" src="images-memory\logomermory.png" alt="Logo memory"></a>
 
+<button><a href="deconnexion.php">Deconnexion</a></button>
+    <!------------------------------------ Logo--------------------------------- -->
 
-<!-------------------------------------bouton de connection  ------------------->
-<button ><a href="deconnexion.php">Deconnexion</a></button>
+    <a href="index.php"><img class="logo" src="images-memory\logomermory.png" alt="Logo memory"></a>
 
 
-    
+    <!-------------------------------------bouton de connection  ------------------->
+  
 
     <!------------------------ Formulaire ajout contact ------------------------->
 
