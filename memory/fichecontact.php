@@ -48,7 +48,7 @@
                     $result = $sth->fetch();
                     echo '<div class="col-8"><a href="./modifiercontact.php?id='. $result['Id'] .'"><img class="mod" src="images-memory\modifier.png"alt="modifier contact"></a></div></div>';
                     echo ' <div class="row">
-                            <div class="col-5">';
+                            <div class="col-9">';
 
 
                     $sexe = $result['Sexe'];

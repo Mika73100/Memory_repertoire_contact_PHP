@@ -20,7 +20,6 @@
 
    <button><a href="inscription.php">Inscription</a></button> 
 
-<H1>Veuillez vous authentifier</H1>
 
     <form action="" method="post" class=" vertical-alignment">
             <div class="col-md-12">

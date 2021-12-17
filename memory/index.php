@@ -11,6 +11,8 @@
     <link rel="icon" type="images/png" href="images-memory\black.png">
 
     <title>Memory</title>
+
+    <button><a href="deconnexion.php">Deconnexion</a></button> ';
 </head>
 
 
@@ -46,8 +48,6 @@
 
 
                 }
-
-        echo '<button><a href="deconnexion.php">Deconnexion</a></button> ';
 
                 $tri = "SELECT Id, Prenom From Contact ORDER BY Prenom";
                 $sth = $conn->prepare($tri);
