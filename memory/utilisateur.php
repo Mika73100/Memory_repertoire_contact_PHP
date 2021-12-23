@@ -6,19 +6,19 @@ require 'initialisation.php';
 
 try {
 //  On nomme  et on donne des valeurs à nos variables
-
-$utilisateur =  valid_donnees ($_POST ["utilisateur"]);
-$motdepasse =  valid_donnees ($_POST["motdepasse"]);
-
-//   Validation des données du formulaire sur serveur via les trois fonctions
-
-
 function valid_donnees($donnees){
     $donnees = trim($donnees);
     $donnees = stripslashes($donnees);
     $donnees = htmlspecialchars($donnees);
     return $donnees;
 }
+$utilisateur =  valid_donnees($_POST["utilisateur"]);
+$motdepasse =  valid_donnees($_POST["motdepasse"]);
+
+//   Validation des données du formulaire sur serveur via les trois fonctions
+
+
+
 
 // On insère les données recues si les champs spnt remplis (contrer les attaques XXS et l'injection)  
 
@@ -28,7 +28,7 @@ function valid_donnees($donnees){
     
     &&!empty($motdepasse) 
     && strlen ($motdepasse) <= 20
-    && preg_match("/^[A-Za-zéè '-]+$/",$pmotdepasse)
+    && preg_match("/^[A-Za-zéè '-]+$/",$motdepasse)
 
     && !empty($utilisateur) && !empty($motdepasse))
 

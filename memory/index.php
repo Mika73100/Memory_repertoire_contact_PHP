@@ -52,9 +52,9 @@
 
 
                 }
-
-                $tri = "SELECT Id, Prenom From Contact ORDER BY Prenom";
+                $tri = "SELECT Id, Prenom From Contact WHERE Id_utilisateur = :id ORDER BY Prenom";
                 $sth = $conn->prepare($tri);
+                $sth->bindValue(':id', $_SESSION['utilisateur']);
                 $sth->execute();
                 $result = $sth->fetchAll();
             } catch (PDOException $e) {

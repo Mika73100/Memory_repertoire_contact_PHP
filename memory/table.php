@@ -38,15 +38,16 @@ try {
 
     $contact = $conn->prepare("
 
-    INSERT INTO contact(nom, prenom, mail, telportable, sexe)
-    VALUES(:nom, :prenom, :mail, :telportable, :sexe)");
+    INSERT INTO contact(nom, prenom, mail, telportable, sexe, id_utilisateur)
+    VALUES(:nom, :prenom, :mail, :telportable, :sexe, :id)");
 
     $contact->bindParam(':nom',$nom);
     $contact->bindParam(':prenom',$prenom);
     $contact->bindParam(':mail',$mail);
     $contact->bindParam(':telportable',$telportable);
     $contact->bindParam(':sexe',$sexe);
-
+    $contact->bindParam(':id',$_SESSION['utilisateur']);
+    
     $contact->execute();
 
     

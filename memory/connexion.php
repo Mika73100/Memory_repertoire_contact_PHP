@@ -71,6 +71,7 @@ $sth->execute();
 $result = $sth->fetch();
 
 $_SESSION['result']=$result;
+$_SESSION['utilisateur'] = $result['Id'];
 } catch (PDOException $e) {
   echo 'Impossible de traiter les données. Erreur : ' . $e->getMessage();
 }
