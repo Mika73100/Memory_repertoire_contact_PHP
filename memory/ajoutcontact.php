@@ -26,12 +26,11 @@
 
   ?>
   <div class="container-sm">
+  <button><a href="deconnexion.php">Deconnexion</a></button>
 <div class="raw">
-  <!------------------------------------ Logo--------------------------------- -->
+  
 
-  <a href="index.php"><img class="logo" src="images-memory\logomermory.png" alt="Logo memory"></a>
 
-<button><a href="deconnexion.php">Deconnexion</a></button>
     <!------------------------------------ Logo--------------------------------- -->
 
     <a href="index.php"><img class="logo" src="images-memory\logomermory.png" alt="Logo memory"></a>

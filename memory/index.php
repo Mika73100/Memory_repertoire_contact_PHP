@@ -20,9 +20,11 @@
     <!-- Les marges -->
     <div class="container">
         <div class="row ">
+       
             <div class="logo">
+            <button><a href="deconnexion.php">Deconnexion</a></button> 
                 <a href="index.php"><img class="logo" src="images-memory\logomermory.png" alt="Logo memory"></a>
-                <button><a href="deconnexion.php">Deconnexion</a></button> 
+                
 
             </div>
             <div class="col-6">
