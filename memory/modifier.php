@@ -28,7 +28,7 @@
         require 'initialisation.php';
 
 
-// On insère les données recues si les champs spnt remplis (contrer les attaques XXS et l'injection)   
+// Vérification de la connexion 
 
         if (empty($_SESSION['result'])) {
             header("location: authentification.php");

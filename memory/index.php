@@ -42,7 +42,7 @@
 
 
             try {
-                // Connexion et tri de la table prénom 
+                // Connexion  
                 require 'initialisation.php';
                 // require 'veriflogin.php';
 
@@ -52,6 +52,9 @@
 
 
                 }
+                
+                // Récupérer la fiche contact par rapport à l'Id_utilistateur dans contact
+
                 $tri = "SELECT Id, Prenom From Contact WHERE Id_utilisateur = :id ORDER BY Prenom";
                 $sth = $conn->prepare($tri);
                 $sth->bindValue(':id', $_SESSION['utilisateur']);

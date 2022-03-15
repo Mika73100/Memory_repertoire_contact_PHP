@@ -36,14 +36,7 @@
             <div class="col-12">
             <input type="submit" id='submit' value='CONNEXION'>
             </div>
-            <?php
-
-              
-                
-                
-                
-                
-                ?>
+         
 
 
 
@@ -54,7 +47,7 @@
 
 
 
-    // Connexion et tri de la table prénom 
+    // Connexion 
     if(!empty($_POST["identifiant"]) && !empty($_POST["login"])) {
       try {
 require 'initialisation.php';
